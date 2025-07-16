@@ -17,6 +17,12 @@ const RestauranteSchema = new mongoose.Schema({ // Define the schema for the Res
     imagen: {
         type: String,
         required: [true, "Imagen is required"]
+    },
+    puntuacion: {
+        type: Number,
+        min: [0, "La puntuación no puede ser menor a 0"],
+        max: [5, "La puntuación no puede ser mayor a 5"],
+        default: 0
     }
 });
 
