@@ -98,7 +98,7 @@ app.listen(port, function () {
 });
 
 */
-const cors = require('cors');
+/*const cors = require('cors');
 
 
 const express = require('express');
@@ -110,6 +110,23 @@ app.use(cors());
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true })); 
 const allUserRoutes = require('./routes/restaurante.routes');
+allUserRoutes(app); 
+app.listen(port, () => {
+   console.log("Server listening at port", port); 
+  })*/
+
+   const cors = require('cors');
+
+
+const express = require('express');
+
+const app = express();  
+const port = 8000;
+require('../severMySQL/config/sequelize.config'); // Importar la configuración de Sequelize para inicializar la conexión a la base de datos
+app.use(cors()); 
+app.use(express.json()); 
+app.use(express.urlencoded({ extended: true })); 
+const allUserRoutes = require('../severMySQL/routes/restaurante.routes'); // Importar las rutas de los restaurantes
 allUserRoutes(app); 
 app.listen(port, () => {
    console.log("Server listening at port", port); 
