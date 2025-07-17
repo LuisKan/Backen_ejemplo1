@@ -1,4 +1,4 @@
-const Restaurante = require('../models/restaurante.model');
+const { Restaurante } = require('../models/index');
 const { Op } = require('sequelize');
 
 // Crear un nuevo restaurante

@@ -12,11 +12,17 @@ initialSequelize.query(`CREATE DATABASE IF NOT EXISTS ${bdd_name};`)
         process.exit(1); // Termina el proceso si hay un error 
     });
 
-const sequelize = new Sequelize(bdd_name, username, password, { host: hostName, dialect: 'mysql' }); // Se sincroniza los modelos con la base de datos 
+const sequelize = new Sequelize(bdd_name, username, password, { host: hostName, dialect: 'mysql' }); 
+
+module.exports = sequelize;
+
+// Importar los modelos y sus asociaciones después de exportar sequelize
+require('../models/index');
+
+// Se sincroniza los modelos con la base de datos 
 sequelize.sync().then(() => {
     console.log('Base de datos sincronizada');
 }).catch(err => {
     console.log('Error al sincronizar la BDD', err);
 
 });
-module.exports = sequelize;

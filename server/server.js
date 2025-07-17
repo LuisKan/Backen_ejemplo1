@@ -127,7 +127,14 @@ app.use(cors());
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true })); 
 const allUserRoutes = require('../severMySQL/routes/restaurante.routes'); // Importar las rutas de los restaurantes
-allUserRoutes(app); 
+allUserRoutes(app);
+const allTipoComidaRoutes = require('../severMySQL/routes/tipoComida.routes'); // Importar las rutas de los tipos de comida
+allTipoComidaRoutes(app); // Configurar las rutas de tipos de comida
+const allMenuRoutes = require('../severMySQL/routes/menu.routes'); // Importar las rutas de los menús
+allMenuRoutes(app); // Configurar las rutas de menús
+
 app.listen(port, () => {
    console.log("Server listening at port", port); 
   })
+
+  
