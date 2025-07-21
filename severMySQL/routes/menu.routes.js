@@ -25,6 +25,8 @@ module.exports = function(app) {
     // Obtener tipos de comida por restaurante
     app.get('/api/menus/tiposComida/restaurante/:restauranteId', MenuController.obtenerTiposComidaPorRestaurante);  
 
+//el server.js se encuentra dentro de server, ejecutar dentro de ese directorio
+
     //obtener los tipos de restaurante por comida
     app.get('/api/v1/restaurantesByTipoC/:tipoComidaId', MenuController.obtenerRestaurantesPorTipoComida);
 };
