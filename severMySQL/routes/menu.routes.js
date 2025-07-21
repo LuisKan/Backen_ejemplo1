@@ -26,5 +26,5 @@ module.exports = function(app) {
     app.get('/api/menus/tiposComida/restaurante/:restauranteId', MenuController.obtenerTiposComidaPorRestaurante);  
 
     //obtener los tipos de restaurante por comida
-    app.get('/api/v1/restauranteByTipoC/:tipoComidaId', MenuController.obtenerRestaurantesPorTipoComida);
+    app.get('/api/v1/restaurantesByTipoC/:tipoComidaId', MenuController.obtenerRestaurantesPorTipoComida);
 };
