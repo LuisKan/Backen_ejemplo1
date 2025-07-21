@@ -218,3 +218,29 @@ module.exports.obtenerTiposComidaPorRestaurante = (req, res) => {
         });
 }
 
+//obtener los tipos de restaurante por comida
+module.exports.obtenerRestaurantesPorTipoComida = (req, res) => {
+    const { tipoComidaId } = req.params;
+
+    TipoComida.findByPk(tipoComidaId, {
+        include: [{
+            model: Restaurante,
+            as: 'restaurantes',
+            through: { attributes: [] } // Excluir atributos de la tabla intermedia
+        }]
+    })
+        .then(tipoComida => {
+            if (!tipoComida) {
+                return res.status(404).json({ message: "Tipo de comida no encontrado" });
+            }
+            res.json(tipoComida.restaurantes);
+        })
+        .catch(err => {
+            res.status(500).json({
+                message: "Error al obtener los restaurantes por tipo de comida",
+                error: err
+            });
+        });
+};
+
+

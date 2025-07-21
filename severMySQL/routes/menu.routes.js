@@ -21,4 +21,10 @@ module.exports = function(app) {
     
     // Eliminar una relación de menú
     app.delete('/api/menus/:id', MenuController.eliminarMenu);
+
+    // Obtener tipos de comida por restaurante
+    app.get('/api/menus/tiposComida/restaurante/:restauranteId', MenuController.obtenerTiposComidaPorRestaurante);  
+
+    //obtener los tipos de restaurante por comida
+    app.get('/api/v1/restauranteByTipoC/:tipoComidaId', MenuController.obtenerRestaurantesPorTipoComida);
 };
