@@ -115,7 +115,7 @@ app.listen(port, () => {
    console.log("Server listening at port", port); 
   })*/
 
-   const cors = require('cors');
+const cors = require('cors');
 
 
 const express = require('express');
