@@ -132,6 +132,8 @@ const allTipoComidaRoutes = require('../severMySQL/routes/tipoComida.routes'); /
 allTipoComidaRoutes(app); // Configurar las rutas de tipos de comida
 const allMenuRoutes = require('../severMySQL/routes/menu.routes'); // Importar las rutas de los menús
 allMenuRoutes(app); // Configurar las rutas de menús
+const allUsuarioRoutes = require('../severMySQL/routes/usuario.routes'); // Importar las rutas de los usuarios
+allUsuarioRoutes(app); // Configurar las rutas de usuarios
 
 app.listen(port, () => {
    console.log("Server listening at port", port); 
